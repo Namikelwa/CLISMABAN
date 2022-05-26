@@ -23,3 +23,19 @@
  #Subset by gender(not equal to female)
 maledata <- subset(my_data, Gender!="Female")
 maledata
+
+#subset by gender or consumption
+sub1 <- subset(my_data, Gender=="Female" | Consumption != "Never")
+
+#subset by gender and consumption
+sub1 <- subset(my_data, Gender=="Female" & Consumption != "Never")
+
+#subset out id of 8 and 9
+sub1 <- subset(my_data, !ID%in% c(8,9))
+
+#The above is same as running the two codes below
+sub1 <- subset(my_data, ID != 8)
+sub1 <- subset(my_data, ID != 9)
+
+#subset by removing columnS from the dataframe
+datasubset <- subset(my_data, select = -c(Agegroup, Consumption, Preference))
